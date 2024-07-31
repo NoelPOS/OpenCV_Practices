@@ -1,0 +1,44 @@
+https://docs.opencv.org/3.4/d1/d5c/tutorial_py_kmeans_opencv.html
+
+https://en.wikipedia.org/wiki/K-means_clustering
+
+https://en.wikipedia.org/wiki/NP-hardness
+
+https://docs.opencv.org/4.x/d1/de0/tutorial_py_feature_homography.html
+
+https://en.wikipedia.org/wiki/Random_sample_consensus
+
+https://en.wikipedia.org/wiki/Bayes%27_theorem
+
+https://docs.opencv.org/4.x/de/dbc/tutorial_py_fourier_transform.html
+
+https://github.com/opencv/opencv/wiki/Posit
+
+https://en.wikipedia.org/wiki/3D_pose_estimation
+
+https://en.wikipedia.org/wiki/Kernel_(image_processing)#Convolution
+
+https://learnopencv.com/image-filtering-using-convolution-in-opencv/
+
+
+
+Question 1
+
+Bonus question: Consider an image that is empty except for two sets of points. One is a set of points distributed roughly uniformly on a circle of radius r centered at point C1, which is near the center of the image. The other set of points is distributed on a circle of radius 2r, which is centered at point C2, which is located inside the other circle. Assume the points in each set are distributed densely enough so that the distances between points on the same circle are smaller than the distances between points on different circles. Describe what segmentation the k-means clustering algorithm would produce for this example, and briefly explain why.
+
+
+The k-means algorithm with k=2 would likely segment the points into two clusters:
+
+All points on the inner circle (radius r)
+All points on the outer circle (radius 2r)
+
+This segmentation occurs because:
+
+Points on the same circle are closer to each other than to points on the other circle
+The maximum distance between points on one circle (2r) is less than the minimum distance between circles (r)
+K-means assigns points to the nearest centroid
+
+The centroids would converge near the centers C1 and C2 of each circle, respectively.
+This clustering effectively separates the two circular distributions based on their spatial relationships.
+
+
