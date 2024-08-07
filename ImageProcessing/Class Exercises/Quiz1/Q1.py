@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Read the color image
-color_image = cv2.imread('Quiz1PicOrg.jpg')
+color_image = cv2.imread('candy.jpg')
 
 # Check if the image is loaded correctly
 if color_image is None:
@@ -18,15 +18,18 @@ cv2.imwrite('grayscale_image.bmp', gray_image)
 
 # Define the kernel (make sure it's normalized)
 kernel1 = np.array([[1, 8, 3],
-                    [1, 8, 3],
-                    [1, 8, 3]], dtype=np.float32)
+                    [8, 1, 8],
+                    [3, 8, 1]], dtype=np.float32)
 kernel1 = kernel1 / np.sum(kernel1)  # Normalize the kernel
 
 # Apply correlation using OpenCV (correlation is similar to convolution with the kernel flipped)
 correlated_image = cv2.filter2D(gray_image, -1, kernel1)
 
+# Flip the kernel for convolution
+kernel1_flipped = cv2.flip(kernel1, -1)
+
 # Apply convolution using OpenCV
-convolved_image = cv2.filter2D(gray_image, -1, kernel1)
+convolved_image = cv2.filter2D(gray_image, -1, kernel1_flipped)
 
 
 # Save results

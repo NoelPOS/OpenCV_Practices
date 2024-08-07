@@ -3,7 +3,7 @@ import cv2
 import matplotlib.pyplot as plt
  
 # Read the grayscale image
-color_image = cv2.imread('Quiz1PicOrg.jpg')
+color_image = cv2.imread('candy.jpg')
 
  
 # Check if the image was successfully loaded
@@ -27,7 +27,6 @@ inverse_fourier_shifted = np.fft.ifftshift(fourier_transform_shifted)
 modified_image = np.fft.ifft2(inverse_fourier_shifted)
 modified_image = np.abs(modified_image)
  
-
 
 # Save results
 cv2.imwrite('modified_image.bmp', modified_image)

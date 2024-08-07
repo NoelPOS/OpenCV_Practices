@@ -2,10 +2,10 @@ import numpy as np
 import cv2 as cv
 from matplotlib import pyplot as plt
  
-MIN_MATCH_COUNT = 10
+MIN_MATCH_COUNT = 50
  
-img1 = cv.imread('apple2.png', cv.IMREAD_GRAYSCALE) # queryImage
-img2 = cv.imread('apple1.png', cv.IMREAD_GRAYSCALE) # trainImage
+img1 = cv.imread('usflag.png', cv.IMREAD_GRAYSCALE) # queryImage
+img2 = cv.imread('usflag1.png', cv.IMREAD_GRAYSCALE) # trainImage
  
 # Initiate SIFT detector
 sift = cv.SIFT_create()
@@ -25,7 +25,7 @@ matches = flann.knnMatch(des1,des2,k=2)
 # store all the good matches as per Lowe's ratio test.
 good = []
 for m,n in matches:
- if m.distance < 0.7 *n.distance:
+ if m.distance < 5 *n.distance:
      good.append(m)
      
      
